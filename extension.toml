@@ -1,0 +1,20 @@
+id = "rockide"
+name = "Rockide"
+description = "Minecraft Bedrock Edition addon development support."
+version = "0.1.0"
+schema_version = 1
+authors = ["Beltsazar"]
+repository = "https://github.com/rockide/rockide-zed"
+
+[language_servers.rockide]
+name = "Rockide"
+languages = ["JSON", "JSONC", "Minecraft Lang"]
+
+[language_servers.rockide.language_ids]
+"JSON" = "json"
+"JSONC" = "jsonc"
+"Minecraft Lang" = "rockide-lang"
+
+[grammars.lang]
+repository = "https://github.com/rockide/tree-sitter-lang"
+rev = "fca23509c5fe8c74e03a25b42ec72405808bd3d3"

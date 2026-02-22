@@ -1,0 +1,5 @@
+name = "Minecraft Lang"
+grammar = "lang"
+path_suffixes = ["lang"]
+line_comments = ["## "]
+tab_size = 4
