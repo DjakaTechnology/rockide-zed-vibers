@@ -1,0 +1,30 @@
+name: Build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-wasip1
+
+      - name: Build
+        run: cargo build --target wasm32-wasip1 --release
+
+      - name: Prepare artifact
+        run: cp target/wasm32-wasip1/release/rockide_zed.wasm extension.wasm
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: rockide-zed-extension
+          path: |
+            extension.toml
+            extension.wasm
+            languages/
